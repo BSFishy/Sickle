@@ -9,6 +9,8 @@ This section is to-do, but it should be as straight forward as running `./gradle
 
 We appreciate anyone who might want to help contribute to Sickle. We strongly encourage you to quickly read through [our contribution guidelines](https://github.com/BSFishy/Sickle/blob/master/CONTRIBUTING.md).
 
+Note that this project uses the [Git Flow workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) for managing Git.
+
 ## License
 Sickle is released under the [GNU General Public License v3.0](https://github.com/BSFishy/Sickle/blob/master/LICENSE).
 
