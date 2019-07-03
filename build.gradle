@@ -1,9 +1,12 @@
 plugins {
     id 'java'
+    id 'idea'
+    id 'application'
+    id 'distribution'
+    id 'eu.davidea.grabver' version '2.0.1'
 }
 
 group 'com.fishy'
-version '0.1'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -13,5 +16,31 @@ repositories {
 }
 
 dependencies {
+    // One day, we will make tests...
 //    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    // JetBrains annotations
+    compileOnly 'org.jetbrains:annotations:17.0.0'
+    annotationProcessor 'org.jetbrains:annotations:17.0.0'
+
+    // Lombok
+    compileOnly 'org.projectlombok:lombok:1.18.6'
+    annotationProcessor 'org.projectlombok:lombok:1.18.6'
 }
+
+mainClassName = 'com.fishy.sickle.commandline.CommandLine'
+
+versioning {
+    // Required (number)
+    major 0
+    minor 0
+    // Optional, force custom patch (number)
+    patch 1
+    // Optional (any string)
+//    preRelease "PRERELEASE"
+}
+
+version = "${versioning.name}"
+project.ext.baseVersion = "${versioning.name}"
+
+apply from: 'version.gradle'

@@ -1,0 +1,22 @@
+task finalizeBuild(type: Copy) {
+    group = 'Build'
+    description = 'Creates a "current" jar file for the latest build'
+    dependsOn 'build'
+
+    def libsDir = "$buildDir/libs"
+    def input = jar.getArchiveFileName().get()
+
+    outputs.cacheIf { true }
+    
+    inputs.file("$libsDir/$input").withPropertyName("Input jar")
+    
+    from(libsDir) {
+        include input
+    }
+    
+    into file(libsDir)
+
+    rename '([^-]+)-(.+)\\.(.+)', '$1-current.$3'
+}
+
+build.finalizedBy finalizeBuild
